@@ -51,7 +51,7 @@ get_header(); ?>
                             AND posts.post_status='publish' )
                     GROUP BY terms.term_id
                     ORDER BY posts.post_date_gmt DESC
-                    LIMIT 5" );
+                    LIMIT 3" );
 
                 $args = array(
                     'orderby'                  => 'id',
