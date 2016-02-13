@@ -38,28 +38,30 @@ get_header(); ?>
 			$categories = get_categories($args);
 			if ( $categories ) {
 				$has_sub_categories = true;
+				?>
+				<div class="category-index">
+				<h1 class="parent-category-header">
+	      			<?php echo $parent_cat->name; ?> race report index:
+				</h1>
+				<?php 
 			  	foreach($categories as $category) {
 			      $posts=get_posts('showposts=1&cat='. $category->term_id);
 			      if ($posts) { ?>
-			      	<p class="cat-name parent-cat-page">
-			      		<span class="cat-latest">Latest in: 
-			      			<a href="<?php echo esc_attr(get_term_link($parent_cat, 'category')); ?>" title="View all posts in <?php echo $parent_cat->name; ?>">
-				      			<?php echo $parent_cat->name; ?>
-				      		</a> /
-				      		<a href="<?php echo esc_attr(get_term_link($category, 'category')); ?>" title="View all posts in <?php echo $category->name; ?>">
-				      			<?php echo $category->name; ?>
-				      		</a>
-			      		</span>
-			      	</p>
+			      	<h2 class="subcategory-header">
+			      		<a href="<?php echo esc_attr(get_term_link($category, 'category')); ?>" title="View all posts in <?php echo $category->name; ?>">
+			      			<?php echo $category->name; ?>
+			      		</a>
+			      	</h2>
 			        <?
-			        foreach($posts as $post) {
-			          setup_postdata($post); ?>
+			        //foreach($posts as $post) {
+			          //setup_postdata($post); ?>
 			          <!-- <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a> -->
-			          <?php get_template_part( 'content', get_post_format() ); ?>
+			          <?php //get_template_part( 'content', get_post_format() ); ?>
 			          <?php
-			        } // foreach($posts
+			        //} // foreach($posts
 			      } // if ($posts
 			    } // foreach($categories
+			    ?></div><?php
 			  } // if (categories
 			} // if (is_category
             
