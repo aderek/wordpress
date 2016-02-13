@@ -1,0 +1,25 @@
+SELECT wp_terms.*, wp_posts.ID as post_ID FROM wp_posts, wp_terms JOIN wp_term_taxonomy term_taxonomy ON wp_terms.term_id = term_taxonomy.term_id JOIN wp_term_relationships term_relationships ON ( term_relationships.term_taxonomy_id = term_taxonomy.term_taxonomy_id AND term_taxonomy.taxonomy = 'category' ) JOIN (SELECT ID, post_type, post_status, MAX(post_modified_gmt) maxLast FROM wp_posts) d ON ( d.ID = term_relationships.object_id AND d.post_type='post' AND d.post_status='publish' ) GROUP BY wp_terms.term_id ORDER BY wp_posts.post_modified_gmt DESC;
+
+
+SELECT terms.*, posts.ID as post_ID FROM wp_posts posts, wp_terms terms JOIN wp_term_taxonomy term_taxonomy ON terms.term_id = term_taxonomy.term_id JOIN wp_term_relationships term_relationships ON ( term_relationships.term_taxonomy_id = term_taxonomy.term_taxonomy_id AND term_taxonomy.taxonomy = 'category' ) JOIN ( SELECT ID, post_type, post_status, MAX(post_modified_gmt) maxLast FROM wp_posts ) posts ON ( posts.ID = term_relationships.object_id AND posts.post_type='post' AND posts.post_status='publish' ) GROUP BY terms.term_id ORDER BY posts.post_modified_gmt DESC;
+
+
+
+SELECT terms.*, posts.ID as post_ID
+                FROM wp_terms terms
+                JOIN wp_term_taxonomy term_taxonomy 
+                    ON terms.term_id = term_taxonomy.term_id
+                JOIN wp_term_relationships term_relationships 
+                    ON ( term_relationships.term_taxonomy_id = term_taxonomy.term_taxonomy_id 
+                        AND term_taxonomy.taxonomy = 'category' )
+                JOIN 
+                    (
+                        SELECT ID, post_type, post_status, post_modified_gmt
+                        FROM wp_posts
+                        ORDER BY post_modified_gmt DESC
+                    ) wp_posts posts
+                    ON ( posts.ID = term_relationships.object_id 
+                        AND posts.post_type='post'
+                        AND posts.post_status='publish' )
+                GROUP BY terms.term_id
+                ORDER BY posts.post_modified_gmt ASC;
