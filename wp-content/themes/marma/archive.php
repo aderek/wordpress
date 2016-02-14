@@ -27,76 +27,115 @@ get_header(); ?>
 			// in category template, get child categories of queried category and if there are child cats, get one post for each child
 			if ( is_category() ) {
 
-			$parent_cat = get_category((get_query_var('cat')));
+				$parent_cat = get_category((get_query_var('cat')));
 
-			$args = array(
-				'child_of'                 => get_query_var('cat'),
-				'orderby'                  => 'id',
-				'order'                    => 'DESC'
-			);
+				$args = array(
+					'child_of'                 => get_query_var('cat'),
+					'orderby'                  => 'id',
+					'order'                    => 'DESC'
+				);
 
-			$categories = get_categories($args);
-			if ( $categories ) {
-				$has_sub_categories = true;
-				?>
-				<div class="category-index">
-				<h1 class="parent-category-header">
-	      			<?php echo $parent_cat->name; ?> report index:
-				</h1>
-				<?php 
-			  	foreach($categories as $category) {
-			      $posts=get_posts('showposts=1&cat='. $category->term_id);
-			      if ($posts) { ?>
-			      	<h2 class="subcategory-header">
-			      		<a href="<?php echo esc_attr(get_term_link($category, 'category')); ?>" title="View all posts in <?php echo $category->name; ?>">
-			      			<?php echo $category->name; ?>
-			      		</a>
-			      	</h2>
-			        <?
-			      } // if ($posts
-			    } // foreach($categories
-			    ?></div><?php
-			  } // if (categories
+				$categories = get_categories($args);
+				if ( $categories ) {
+					$has_sub_categories = true;
+					?>
+					<div class="category-index">
+					<h1 class="parent-category-header">
+		      			<?php echo $parent_cat->name; ?> report index:
+					</h1>
+					<?php 
+				  	foreach($categories as $category) {
+				      	$posts=get_posts('showposts=1&cat='. $category->term_id);
+				     	if ($posts) { ?>
+					      	<h2 class="subcategory-header">
+					      		<a href="<?php echo esc_attr(get_term_link($category, 'category')); ?>" title="View all posts in <?php echo $category->name; ?>">
+					      			<?php echo $category->name; ?>
+					      		</a>
+					      	</h2>
+					        <?
+				      	} // if ($posts
+				    } // foreach($categories
+				    ?></div><?php
+				} // if (categories
 			} // if (is_category
             
         ?>
-		<?php if (!$has_sub_categories) : ?>
-			<?php if (have_posts()) : ?> 
-			<header class="page-header">
-				
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+		<?php 
+			if (!$has_sub_categories) { 
 
-			<?php
-			// Start the Loop.
-			while ( have_posts() ) : the_post();
+				if (have_posts()) { 
+			
+					$args = array( 'posts_per_page' => -1, 'category' => $parent_cat->term_id );
+					$posts=get_posts($args);
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'content', get_post_format() );
+		            if($posts) {
 
-			// End the loop.
-			endwhile;
+		            	?>
+		                <div class="homepage-cat-teaser subcategory-teaser">
+		                <?
+		                $count =  0;
 
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
-				'next_text'          => __( 'Next page', 'twentyfifteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
-			) );
+		                foreach($posts as $post) {
 
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'content', 'none' );
+							/*
+							 * Include the Post-Format-specific template for the content.
+							 * If you want to override this in a child theme, then include a file
+							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+							 */
+							// get_template_part( 'content', get_post_format() );
+			                    
+			                if($count % 2 === 0) { ?>
+			                    <div class="homepage-cat-row">
+			                <?php }?>
 
-		endif;
-		endif;
+			                <div class="homepage-cat-container">
+
+			                    <div class="hp-cat-title-container">
+			                        <h2 class="entry-title"><a href="<?php echo get_permalink( $post->ID); ?>"> <?php echo get_the_title( $post->ID ); ?></a></h2>
+			                        <p class="cat-name"><span class="cat-latest"><a href="<?php echo esc_attr(get_term_link($parent_cat, 'category')); ?>" title="View all posts in <?php echo $parent_cat->name; ?>"><?php echo $parent_cat->name; ?></a></span> &mdash; <span class="cat-date"><?php echo date('D, d M' ,strtotime($post->post_date_gmt)); ?></span></p>
+			                    </div>
+
+			                    <div class="hp-post-content">
+			                        <?php echo truncateHtml(apply_filters('the_content', $post->post_content), $length = 300); ?>
+			                    </div>
+
+			                    <div class="hp-teaser-footer">
+
+			                        <div class="homepage-readmore"><a href="<?php echo get_permalink( $post->ID); ?>">Read More</a></div>
+
+			                    </div>
+			                </div>
+			                
+			                <?php
+			                $count++;
+			                if($count % 2 === 0) { ?>
+			                    </div>
+			                <?php }
+			              
+
+			            }
+
+			            ?>
+			            </div> <!-- close homepage-cat-teaser-->
+			            <?php
+
+					// End the loop.
+					}
+
+					// Previous/next page navigation.
+					the_posts_pagination( array(
+						'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
+						'next_text'          => __( 'Next page', 'twentyfifteen' ),
+						'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
+					) );
+
+				// If no content, include the "No posts found" template.
+				} 
+				else {
+					get_template_part( 'content', 'none' );
+
+				}
+			}
 		?>
 
 		</main><!-- .site-main -->

@@ -644,7 +644,8 @@ footer a {
 	}
 
 	.homepage-cat-teaser:nth-child(3) .hp-teaser-footer,
-	.homepage-cat-teaser:nth-child(5) .hp-teaser-footer {
+	.homepage-cat-teaser:nth-child(5) .hp-teaser-footer,
+	.homepage-cat-teaser.subcategory-teaser .hp-teaser-footer {
 		position: absolute;
 		bottom: 0;
 		width: auto;
@@ -655,7 +656,8 @@ footer a {
 	}
 
 	.homepage-cat-teaser:nth-child(3) .homepage-cat-container,
-	.homepage-cat-teaser:nth-child(5) .homepage-cat-container {
+	.homepage-cat-teaser:nth-child(5) .homepage-cat-container,
+	.homepage-cat-teaser.subcategory-teaser .homepage-cat-container {
 		width: 47%;
 	    display: inline-block;
 	    clear: none;
@@ -663,28 +665,33 @@ footer a {
 	}
 
 	.homepage-cat-teaser:nth-child(3) .homepage-cat-container:nth-child(3),
-	.homepage-cat-teaser:nth-child(5) .homepage-cat-container:nth-child(3) {
+	.homepage-cat-teaser:nth-child(5) .homepage-cat-container:nth-child(3),
+	.homepage-cat-teaser.subcategory-teaser .homepage-cat-container:nth-child(3) {
 		clear: left;
 	}
 
 	.homepage-cat-teaser .homepage-cat-container:nth-child(1) .hp-cat-title-container p,
 	.homepage-cat-teaser .homepage-cat-container:nth-child(2) .hp-cat-title-container p,
-	.homepage-cat-teaser .homepage-cat-container:nth-child(3) .hp-cat-title-container p {
+	.homepage-cat-teaser .homepage-cat-container:nth-child(3) .hp-cat-title-container p,
+	.homepage-cat-teaser.subcategory-teaser .hp-cat-title-container p {
 		margin-bottom: 0em;
 	}
 
 	.homepage-cat-teaser .homepage-cat-container:nth-child(2) .hp-post-content,
-	.homepage-cat-teaser .homepage-cat-container:nth-child(3) .hp-post-content {
+	.homepage-cat-teaser .homepage-cat-container:nth-child(3) .hp-post-content,
+	.homepage-cat-teaser.subcategory-teaser .hp-post-content {
 		display: block;
 	}
 
-	.homepage-cat-teaser .homepage-cat-container:nth-child(1) {
+	.homepage-cat-teaser .homepage-cat-container:nth-child(1),
+	.homepage-cat-teaser.subcategory-teaser .homepage-cat-container:nth-child(1) {
 		padding-right: 0;
 		padding-left: 0;
 	}
 
 	.homepage-cat-teaser:nth-child(3) .homepage-cat-container:nth-child(even),
-	.homepage-cat-teaser:nth-child(5) .homepage-cat-container:nth-child(even) {
+	.homepage-cat-teaser:nth-child(5) .homepage-cat-container:nth-child(even),
+	.homepage-cat-teaser.subcategory-teaser .homepage-cat-container:nth-child(even) {
 		margin-left: 3%;
 	}
 
