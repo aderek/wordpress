@@ -65,6 +65,7 @@ body#tour-de-france-2015 #page {
 
 #sidebar .site-header {
 	border-bottom: none;
+	background-color: rgba(247, 247, 247, 0.73);
 }
 
 #sidebar aside.widget {
@@ -78,6 +79,10 @@ body#tour-de-france-2015 #page {
 	position:relative;
 	margin: 0;
 	float: left;
+}
+
+#sidebar #secondary {
+	border-top: 5px solid rgba(255, 255, 0, 0.26);
 }
 
 #sidebar #secondary h2 {
@@ -103,6 +108,12 @@ body#tour-de-france-2015 #page {
 		font-size: 5em;
 		margin-top: -11px;
 	}
+}
+
+.site-description {
+	position: relative;
+	top: -9px;
+	display: block;
 }
 
 #content {
@@ -334,7 +345,7 @@ footer a {
 }
 
 #content {
-	padding: 0 3% 20px 3%;
+	padding: 0 3% 5em 3%;
 }
 
 @media screen and (min-width: 481px) {
@@ -379,6 +390,7 @@ footer a {
 	position: static;
 	padding-right: 0;
 	text-align: center;
+	padding-top: 3em;
 }
 
 #sidebar #secondary {
@@ -397,7 +409,8 @@ footer a {
 }
 
 #sidebar #secondary li {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
+	margin-top: 5px;
 	width: 47.5%;
 	margin-right: 2.5%;
 	float: left;
@@ -422,18 +435,17 @@ footer a {
 
 @media screen and (min-width: 570px) {
 
+	#sidebar #secondary {
+		background-color: rgba(255, 255, 0, 0.26);
+		border-top: none;
+	}
+
 	#sidebar #secondary aside {
 		position: relative;
 	}
 
 	#sidebar #secondary .menu-line {
-		display: block;
-		position: absolute;
-		top: 15px;
-		left: 3%;
-		width: 26%;
-		border-bottom: 1px solid #efefef;
-		height: 1px;
+		display: none;
 	}
 
 	#sidebar #secondary .menu-line.right {
@@ -448,7 +460,7 @@ footer a {
 		display: block;
 		position: relative;
 		left: auto;
-		background-color: white;
+		background-color: rgba(255, 255, 0, 0.48);
 		z-index: 2;
 		max-width: 505px;
 	}
@@ -460,6 +472,7 @@ footer a {
 		text-align: center;
 		float: none;
 		display: inline-block;
+		border-bottom: none;
 	}
 
 	#sidebar #secondary li:nth-child(2n+1) {
@@ -496,7 +509,48 @@ footer a {
 @media screen and (min-width: 1170px) { 
 
 	#sidebar #secondary ul {
-		width: 37%;
+		width: 38%;
+	}
+}
+
+.header-social {
+	position: absolute;
+    top: 0.2em;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 5px solid rgba(255, 255, 0, 0.26);
+    padding-bottom: 0.2em;
+    background-color: #FFFFFF;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.header-social p {
+	margin-bottom: 0;
+	display: inline;
+}
+
+.header-social a {
+	display: inline;
+}
+
+.header-social a .text {
+	display: inline;
+}
+
+.header-social .race-info {
+	display: none;
+}
+
+@media screen and (min-width: 760px) {
+	.header-social .social-shinfo {
+		float: left;
+	}
+
+	.header-social .race-info {
+		float: right;
+		display: inline-block;
 	}
 }
 
@@ -574,8 +628,14 @@ footer a {
 
 	.homepage-cat-teaser {
 		position: relative;
-		margin-bottom: 2em;
-		padding-bottom: 2em;
+	}
+
+	.homepage-cat-row {
+		width: 100%;
+		clear: left;
+		position: relative;
+		display: inline-block;
+		margin-bottom: 4em;
 	}
 
 	.homepage-cat-teaser:nth-child(1) {
@@ -596,11 +656,15 @@ footer a {
 
 	.homepage-cat-teaser:nth-child(3) .homepage-cat-container,
 	.homepage-cat-teaser:nth-child(5) .homepage-cat-container {
-		width: 31%;
+		width: 47%;
 	    display: inline-block;
 	    clear: none;
 	    float: left;
-	    margin-bottom: 0;
+	}
+
+	.homepage-cat-teaser:nth-child(3) .homepage-cat-container:nth-child(3),
+	.homepage-cat-teaser:nth-child(5) .homepage-cat-container:nth-child(3) {
+		clear: left;
 	}
 
 	.homepage-cat-teaser .homepage-cat-container:nth-child(1) .hp-cat-title-container p,
@@ -617,19 +681,17 @@ footer a {
 	.homepage-cat-teaser .homepage-cat-container:nth-child(1) {
 		padding-right: 0;
 		padding-left: 0;
-		margin-bottom: 0;
 	}
 
-	.homepage-cat-teaser:nth-child(3) .homepage-cat-container:nth-child(2),
-	.homepage-cat-teaser:nth-child(5) .homepage-cat-container:nth-child(2) {
-		margin: 0 3%
+	.homepage-cat-teaser:nth-child(3) .homepage-cat-container:nth-child(even),
+	.homepage-cat-teaser:nth-child(5) .homepage-cat-container:nth-child(even) {
+		margin-left: 3%;
 	}
 
 	.homepage-cat-teaser .homepage-cat-container:nth-child(3) {
 		
 	}
 }
-
 
 /* parent category header */
 .category-index {

@@ -41,7 +41,7 @@ get_header(); ?>
 				?>
 				<div class="category-index">
 				<h1 class="parent-category-header">
-	      			<?php echo $parent_cat->name; ?> race report index:
+	      			<?php echo $parent_cat->name; ?> report index:
 				</h1>
 				<?php 
 			  	foreach($categories as $category) {
@@ -53,12 +53,6 @@ get_header(); ?>
 			      		</a>
 			      	</h2>
 			        <?
-			        //foreach($posts as $post) {
-			          //setup_postdata($post); ?>
-			          <!-- <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a> -->
-			          <?php //get_template_part( 'content', get_post_format() ); ?>
-			          <?php
-			        //} // foreach($posts
 			      } // if ($posts
 			    } // foreach($categories
 			    ?></div><?php

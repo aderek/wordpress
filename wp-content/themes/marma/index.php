@@ -63,14 +63,19 @@ get_header(); ?>
 
                     foreach($cat_array as $category) {
 
-                        $posts=get_posts('showposts=3&cat='. $category->term_id);
+                        $posts=get_posts('showposts=4&cat='. $category->term_id);
 
                         if($posts) {
                             ?>
                             <div class="homepage-cat-teaser">
                             <?
+                            $count =  0;
                             foreach($posts as $post) {
-                            ?>
+                                
+                                if($count % 2 === 0) { ?>
+                                    <div class="homepage-cat-row">
+                                <?php }?>
+
                                 <div class="homepage-cat-container">
 
                                     <div class="hp-cat-title-container">
@@ -88,6 +93,14 @@ get_header(); ?>
 
                                     </div>
                                 </div>
+                                
+                                <?php
+                                $count++;
+                                if($count % 2 === 0) { ?>
+                                    </div>
+                                <?php }
+                                
+                                ?>
 
                             <?php
 

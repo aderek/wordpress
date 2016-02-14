@@ -14,9 +14,11 @@
 
 	<footer>
 		<div>
-			<span class="copyright">&copy; Marmeladrome <?php echo date("Y"); ?></span> | 
-			<span class="about-link"><a href="http://marmeladrome.co.uk/about-us">about</a></span> | 
-			<span class="about-link"><a href="https://www.facebook.com/marmeladrome">facebook</a></span>
+			<span class="copyright">&copy; Marmeladrome <?php echo date("Y"); ?></span> // 
+			<span class="about-link"><a href="http://marmeladrome.co.uk/about-us">about</a></span> // 
+			<span class="about-link"><a href="https://www.twitter.com/marmeladromecc">twitter</a></span> //
+			<span class="about-link"><a href="https://www.facebook.com/marmeladrome">facebook</a></span> //
+			<span class="about-link"><a href="https://www.instagram.com/marmeladrome">instagram</a></span>
 		</div>
 	</footer><!-- .site-footer -->
 

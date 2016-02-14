@@ -58,6 +58,15 @@
 				?>
 				<button class="secondary-toggle"><?php _e( 'Menu and widgets', 'twentyfifteen' ); ?></button>
 			</div><!-- .site-branding -->
+			<div class="header-social">
+				<div class="social-shinfo">
+					<p>follow us:</p>
+					<a class="twitter" href="https://twitter.com/marmeladromecc" target="_blank"><span class="image"></span><span class="text">twitter // </span></a>
+					<a class="instagram" href="https://www.instagram.com/marmeladrome/"><span class="text">instagram // </span></a>
+					<a class="facebook" href="https://www.facebook.com/marmeladrome"><span class="image"></span><span class="text">facebook</span></a>
+				</div>
+				<p class="race-info">upcoming race(s): Tour of Oman</p>
+			</div>
 		</header><!-- .site-header -->
 
 		<?php //get_sidebar(); ?>
