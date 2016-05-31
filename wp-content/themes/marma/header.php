@@ -65,7 +65,7 @@
 					<a class="instagram" href="https://www.instagram.com/marmeladrome/"><span class="text">instagram // </span></a>
 					<a class="facebook" href="https://www.facebook.com/marmeladrome"><span class="image"></span><span class="text">facebook</span></a>
 				</div>
-				<p class="race-info">upcoming race(s): Tour of Oman</p>
+				<p class="race-info">upcoming race(s): Critérium du Dauphiné</p>
 			</div>
 		</header><!-- .site-header -->
 
@@ -121,7 +121,7 @@
 			<div class="nav-wrapper one-days">
 				<ul>
 				<?php
-				$args = array('child_of' => 8);
+				$args = array('child_of' => 7);
 				$categories = get_categories( $args );
 				foreach($categories as $category) { 
 				    echo '<li><a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a></li>';

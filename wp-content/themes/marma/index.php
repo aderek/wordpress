@@ -60,58 +60,76 @@ get_header(); ?>
 
                 $categories = get_categories($args);
                 if ( $cat_array ) {
+                    $postArr = [];
+                    $index = 0;
+                    $catArr = [];
 
                     foreach($cat_array as $category) {
 
                         $posts=get_posts('showposts=4&cat='. $category->term_id);
-
-                        if($posts) {
-                            ?>
-                            <div class="homepage-cat-teaser">
-                            <?
-                            $count =  0;
+                        if ($posts) {
+                            
                             foreach($posts as $post) {
-                                
-                                if($count % 2 === 0) { ?>
-                                    <div class="homepage-cat-row">
-                                <?php }?>
+                                $postArr[$index] = $post;
+                                $catArr[$index] = $category;
+                                $index++;
+                            }
+                        }
+                    }
 
-                                <div class="homepage-cat-container">
+                    $count =  0;
+                    ?>
+                    <div class="homepage-cat-teaser">
 
-                                    <div class="hp-cat-title-container">
-                                        <h2 class="entry-title"><a href="<?php echo get_permalink( $post->ID); ?>"> <?php echo get_the_title( $post->ID ); ?></a></h2>
-                                        <p class="cat-name"><span class="cat-latest"><a href="<?php echo esc_attr(get_term_link($category, 'category')); ?>" title="View all posts in <?php echo $category->name; ?>"><?php echo $category->name; ?></a></span> &mdash; <span class="cat-date"><?php echo date('D, d M' ,strtotime($post->post_date_gmt)); ?></span></p>
-                                    </div>
+                    <?php
+                    foreach($postArr as $post) {
+                            
+                        if($count % 2 === 0) { ?>
+                            <div class="homepage-cat-row">
+                        <?php }?>
 
-                                    <div class="hp-post-content">
-                                        <?php echo truncateHtml(apply_filters('the_content', $post->post_content), $length = 300); ?>
-                                    </div>
-
-                                    <div class="hp-teaser-footer">
-
-                                        <div class="homepage-readmore"><a href="<?php echo get_permalink( $post->ID); ?>">Read More</a></div>
-
-                                    </div>
-                                </div>
-                                
-                                <?php
-                                $count++;
-                                if($count % 2 === 0) { ?>
-                                    </div>
-                                <?php }
-                                
-                                ?>
+                        <div class="homepage-cat-container container<?php echo $count; ?>">
 
                             <?php
-
-                            } // close foreach posts
+                            $category = $catArr[$count];
                             ?>
-                            </div> <!-- close homepage-cat-teaser-->
-                            <hr class="hp-hr"></hr>
-                            <?php
-                        } // close if posts
 
-                    } // close foreach categories
+                            <div class="hp-cat-title-container">
+                                <h2 class="entry-title"><a href="<?php echo get_permalink( $post->ID); ?>"> <?php echo get_the_title( $post->ID ); ?></a></h2>
+                                <p class="cat-name"><span class="cat-latest"><a href="<?php echo get_category_link( $category->term_id ) ?>" title="View all posts in <?php echo $category->name; ?>"><?php echo $category->name; ?></a></span> &mdash; <span class="cat-date"><?php echo date('D, d M' ,strtotime($post->post_date_gmt)); ?></span></p>
+                            </div>
+
+                            <div class="hp-post-content">
+                                <?php echo truncateHtml(apply_filters('the_content', $post->post_content), $length = 500); ?>
+                            </div>
+
+                            <div class="hp-teaser-footer">
+
+                                <div class="homepage-readmore"><a href="<?php echo get_permalink( $post->ID); ?>">Read More</a></div>
+
+                            </div>
+                        </div>
+                        
+                        <?php
+                        $count++;
+
+                        if($count % 2 === 0 || $count === count($postArr)) { ?>
+                            </div>
+                            </div>
+                            <?php
+                            if($count !== count($postArr)) { ?>
+                                <hr class="hp-hr"></hr>
+                            <?php } ?>
+                            
+                            <div class="homepage-cat-teaser">
+                        <?php }
+
+                    } // close foreach posts
+                    ?>
+
+                    </div> <!-- close homepage-cat-teaser-->
+                    <hr class="hp-hr"></hr>
+            <?php
                 } // close if categories
 
             } else {

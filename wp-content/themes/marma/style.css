@@ -522,8 +522,8 @@ footer a {
     border-bottom: 5px solid rgba(255, 255, 0, 0.26);
     padding-bottom: 0.2em;
     background-color: #FFFFFF;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .header-social p {
@@ -541,6 +541,13 @@ footer a {
 
 .header-social .race-info {
 	display: none;
+}
+
+@media screen and (min-width: 568px) { 
+	.header-social {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
 }
 
 @media screen and (min-width: 760px) {
@@ -626,6 +633,24 @@ footer a {
 	font-size: 1.1em;
 }
 
+.homepage-cat-teaser:nth-child(1) .homepage-cat-container figure,
+.homepage-cat-teaser:nth-child(1) .homepage-cat-container figure,
+.homepage-cat-teaser:nth-child(1) .homepage-cat-container img {
+	display: none;
+}
+
+.homepage-cat-teaser .homepage-cat-container.container0 figure:first-child img,
+.homepage-cat-teaser .homepage-cat-container.container0 figure:first-child,
+.homepage-cat-teaser .homepage-cat-container.container1 figure:first-child img,
+.homepage-cat-teaser .homepage-cat-container.container1 figure:first-child {
+	display: block;
+}
+
+.homepage-cat-teaser .homepage-cat-container p img,
+.homepage-cat-teaser .homepage-cat-container p img {
+	display: none;
+}
+
 @media screen and (min-width: 1024px) {
 
 	.homepage-cat-teaser {
@@ -697,8 +722,13 @@ footer a {
 		margin-left: 3%;
 	}
 
-	.homepage-cat-teaser .homepage-cat-container:nth-child(3) {
-		
+	.homepage-cat-teaser:nth-child(3) .homepage-cat-container figure:first-child,
+	.homepage-cat-teaser:nth-child(5) .homepage-cat-container figure:first-child,
+	.homepage-cat-teaser:nth-child(3) .homepage-cat-container dl,
+	.homepage-cat-teaser:nth-child(5) .homepage-cat-container dl,
+	.homepage-cat-teaser.subcategory-teaser .homepage-cat-container figure:first-child,
+	.homepage-cat-teaser.subcategory-teaser .homepage-cat-container figure:first-child img {
+		display: block;
 	}
 }
 
