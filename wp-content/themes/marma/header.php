@@ -76,27 +76,60 @@
 			<div id="widget-area" class="widget-area" role="complementary">
 				<aside id="categories-4" class="widget widget_categories">
 					<div class="menu-line left"></div>
-					<ul>
-						<li class="cat-item ">
-							<a href="/races/grand-tours/"><span class="desk">Grand Tours</span><span class="mob">Grand Tours</span></a>
+					<ul class="main-nav">
+						<li class="cat-item">
+							<a href="/races/grand-tours/" class="grand-tours"><span class="desk">Grand Tours</span><span class="mob">Grand Tours</span></a>
 						</li>
 						<li class="cat-item ">
-							<a href="/races/stage-races"><span class="desk">Stage Races</span><span class="mob">Stage Races</span></a>
+							<a href="/races/stage-races" class="stage-races"><span class="desk">Stage Races</span><span class="mob">Stage Races</span></a>
 						</li>
 						<li class="cat-item ">
-							<a href="/races/one-day-races/"><span class="desk">One Day Races</span><span class="mob">One Days</span></a>
+							<a href="/races/one-day-races/" class="one-days"><span class="desk">One Day Races</span><span class="mob">One Days</span></a>
 							<!-- <a href="/about-us"><span class="desk">About</span><span class="mob">About</span></a> -->
 						</li>
 						<li class="cat-item ">
-							<a href="/races/opinion"><span class="desk">Opinion</span><span class="mob">Opinion</span></a>
+							<a href="/races/opinion" class="no-sub-nav"><span class="desk">Opinion</span><span class="mob">Opinion</span></a>
 						</li>
 					</ul>
 					<div class="menu-line right"></div>
 				</aside>
 			</div><!-- .widget-area -->
-		
 		</div>
-
+		<div class="subnav">
+			<div class="nav-wrapper grand-tours">
+				<ul>
+				<?php
+				$args = array('child_of' => 5);
+				$categories = get_categories( $args );
+				foreach($categories as $category) { 
+				    echo '<li><a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a></li>';
+				}
+				?>
+				</ul>
+			</div>
+			<div class="nav-wrapper stage-races">
+				<ul>
+				<?php
+				$args = array('child_of' => 6);
+				$categories = get_categories( $args );
+				foreach($categories as $category) { 
+				    echo '<li><a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a></li>';
+				}
+				?>
+				</ul>
+			</div>
+			<div class="nav-wrapper one-days">
+				<ul>
+				<?php
+				$args = array('child_of' => 8);
+				$categories = get_categories( $args );
+				foreach($categories as $category) { 
+				    echo '<li><a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a></li>';
+				}
+				?>
+				</ul>
+			</div>
+		</div>
 	</div><!-- .sidebar -->
 
 	<div id="content" class="site-content">

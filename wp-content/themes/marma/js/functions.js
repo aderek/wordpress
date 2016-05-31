@@ -176,3 +176,41 @@
 	} );
 
 } )( jQuery );
+
+
+( function( $ ) {
+
+	$(document).ready(function() {
+
+		$('.main-nav a').each(function() {
+			$(this).click(function(e) {
+
+				var link_class = $(this).attr('class');
+
+				if (link_class != 'no-sub-nav') {
+					e.preventDefault();
+
+					if(!$(this).closest('li').hasClass('active')) {
+						$('.main-nav li').removeClass('active');
+						$(this).closest('li').addClass('active');
+
+						$('.subnav .nav-wrapper').hide();
+
+						$('.subnav .'+link_class).show();
+
+						$('.subnav').removeClass('show-nav');
+
+						$('.subnav').addClass('show-nav');
+					} else {
+						$('.subnav').removeClass('show-nav');
+						$(this).closest('li').removeClass('active');
+					}
+
+				}
+
+			})
+		});
+
+	});
+
+} )( jQuery );

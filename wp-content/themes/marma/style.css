@@ -596,7 +596,9 @@ footer a {
 .homepage-cat-teaser:nth-child(3) .homepage-cat-container figure,
 .homepage-cat-teaser:nth-child(5) .homepage-cat-container figure,
 .homepage-cat-teaser:nth-child(3) .homepage-cat-container dl,
-.homepage-cat-teaser:nth-child(5) .homepage-cat-container dl {
+.homepage-cat-teaser:nth-child(5) .homepage-cat-container dl,
+.homepage-cat-teaser.subcategory-teaser .homepage-cat-container figure,
+.homepage-cat-teaser.subcategory-teaser .homepage-cat-container img {
 	display: none;
 }
 
@@ -720,4 +722,51 @@ footer a {
 
 .subcategory-header a:hover {
 	border-bottom: none;
+}
+
+/* end parent category header */
+
+/* subnav styling */
+
+.subnav {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	height: 0;
+	overflow: hidden;
+	-webkit-transition: height 1s ease-in;
+}
+
+.subnav.show-nav {
+	height: auto;
+}
+
+.subnav .nav-wrapper {
+	border-bottom: 5px solid rgba(255, 255, 0, 0.26);
+	display: none;
+}
+
+.subnav ul {
+	margin: 0 auto;
+	width: 80%;
+	padding: 2em 0 0 0;
+	display: inline-block;
+}
+
+.subnav ul li {
+	list-style-type: none;
+	display: block;
+	padding: 0 2em;
+	margin-bottom: 2em;
+}
+
+@media screen and (min-width: 570px) {
+	.subnav ul li {
+		display: inline-block;
+	}
+}
+
+
+.subnav ul li a {
+	border-bottom: 1px solid;
 }

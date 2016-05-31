@@ -64,8 +64,8 @@ get_header(); ?>
 			if (!$has_sub_categories) { 
 
 				if (have_posts()) { 
-			
-					$args = array( 'posts_per_page' => -1, 'category' => $parent_cat->term_id );
+					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+					$args = array( 'paged' => $paged, 'posts_per_page' => 10, 'category' => $parent_cat->term_id );
 					$posts=get_posts($args);
 
 		            if($posts) {
