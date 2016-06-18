@@ -66,7 +66,12 @@ get_header(); ?>
 
                     foreach($cat_array as $category) {
 
-                        $posts=get_posts('showposts=4&cat='. $category->term_id);
+                        if($index == 0) {
+                            $posts=get_posts('showposts=1&cat='. $category->term_id);                            
+                        } else {
+                            $posts=get_posts('showposts=4&cat='. $category->term_id);
+                        }
+                        
                         if ($posts) {
                             
                             foreach($posts as $post) {
