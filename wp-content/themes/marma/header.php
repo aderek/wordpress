@@ -65,7 +65,7 @@
 					<a class="instagram" href="https://www.instagram.com/marmeladrome/"><span class="text">instagram // </span></a>
 					<a class="facebook" href="https://www.facebook.com/marmeladrome"><span class="image"></span><span class="text">facebook</span></a>
 				</div>
-				<p class="race-info">upcoming race(s): Critérium du Dauphiné</p>
+				<p class="race-info">upcoming race(s): Tour de France</p>
 			</div>
 		</header><!-- .site-header -->
 
