@@ -66,7 +66,8 @@ get_header(); ?>
 
                     foreach($cat_array as $category) {
 
-                        if($index == 0) {
+                        // if we're the first and in the opinion category then only show one
+                        if($index == 0 && $category->term_id == 12) {
                             $posts=get_posts('showposts=1&cat='. $category->term_id);                            
                         } else {
                             $posts=get_posts('showposts=4&cat='. $category->term_id);
