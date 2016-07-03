@@ -106,7 +106,7 @@ get_header(); ?>
                             </div>
 
                             <div class="hp-post-content">
-                                <?php echo truncateHtml(apply_filters('the_content', $post->post_content), $length = 500); ?>
+                                <?php echo strip_tags(truncateHtml(apply_filters('the_content', $post->post_content), $length = 500), '<figure><a><img><figcaption><p>'); ?>
                             </div>
 
                             <div class="hp-teaser-footer">
