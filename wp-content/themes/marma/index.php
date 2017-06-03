@@ -35,6 +35,7 @@ get_header(); ?>
                 $post_array = $wpdb->get_results( "
                     SELECT *
                     FROM wp_posts
+                    WHERE post_status='publish'
                     ORDER BY post_date_gmt DESC
                     LIMIT 6" );
 
