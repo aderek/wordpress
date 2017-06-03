@@ -32,58 +32,27 @@ get_header(); ?>
 
                 global $wpdb;
 
-                $cat_array = $wpdb->get_results( "
-                    SELECT terms.*, posts.ID as post_ID, posts.post_date_gmt
-                    FROM
-                    wp_terms terms
-                    JOIN wp_term_taxonomy term_taxonomy 
-                        ON terms.term_id = term_taxonomy.term_id
-                    JOIN wp_term_relationships term_relationships 
-                        ON ( term_relationships.term_taxonomy_id = term_taxonomy.term_taxonomy_id 
-                            AND term_taxonomy.taxonomy = 'category' )
-                    JOIN (
-                        SELECT ID, post_type, post_status, post_date_gmt
-                        FROM wp_posts
-                        ORDER BY post_date_gmt DESC
-                        ) posts 
-                        ON ( posts.ID = term_relationships.object_id 
-                            AND posts.post_type='post'
-                            AND posts.post_status='publish' )
-                    GROUP BY terms.term_id
-                    ORDER BY posts.post_date_gmt DESC
-                    LIMIT 4" );
+                $post_array = $wpdb->get_results( "
+                    SELECT *
+                    FROM wp_posts
+                    ORDER BY post_date_gmt DESC
+                    LIMIT 6" );
 
                 $args = array(
                     'orderby'                  => 'id',
                     'order'                    => 'DESC'
                 );
 
-                $categories = get_categories($args);
-                if ( $cat_array ) {
+                if ( $post_array ) {
                     $postArr = [];
                     $index = 0;
                     $catArr = [];
-
-                    foreach($cat_array as $category) {
-
-                        $posts=get_posts('showposts=1&cat='. $category->term_id);
-                        
-                        if ($posts) {
-                            
-                            foreach($posts as $post) {
-                                $postArr[$index] = $post;
-                                $catArr[$index] = $category;
-                                $index++;
-                            }
-                        }
-                    }
-
                     $count =  0;
                     ?>
                     <div class="homepage-cat-teaser">
 
                     <?php
-                    foreach($postArr as $post) {
+                    foreach($post_array as $post) {
                             
                         if($count % 2 === 0) { ?>
                             <div class="homepage-cat-row">
@@ -92,7 +61,7 @@ get_header(); ?>
                         <div class="homepage-cat-container container<?php echo $count; ?>">
 
                             <?php
-                            $category = $catArr[$count];
+                            $category = get_the_category($post->ID)[0];
                             ?>
 
                             <div class="hp-cat-title-container">
@@ -117,10 +86,6 @@ get_header(); ?>
                         if($count % 2 === 0 || $count === count($postArr)) { ?>
                             </div>
                             </div>
-                            <?php
-                            if($count !== count($postArr)) { ?>
-                                <hr class="hp-hr"></hr>
-                            <?php } ?>
                             
                             <div class="homepage-cat-teaser">
                         <?php }
