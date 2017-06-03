@@ -51,7 +51,7 @@ get_header(); ?>
                             AND posts.post_status='publish' )
                     GROUP BY terms.term_id
                     ORDER BY posts.post_date_gmt DESC
-                    LIMIT 3" );
+                    LIMIT 4" );
 
                 $args = array(
                     'orderby'                  => 'id',
@@ -66,12 +66,7 @@ get_header(); ?>
 
                     foreach($cat_array as $category) {
 
-                        // if we're the first and in the opinion category then only show one
-                        if($category->term_id == 12) {
-                            $posts=get_posts('showposts=1&cat='. $category->term_id);                            
-                        } else {
-                            $posts=get_posts('showposts=4&cat='. $category->term_id);
-                        }
+                        $posts=get_posts('showposts=1&cat='. $category->term_id);
                         
                         if ($posts) {
                             
