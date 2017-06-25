@@ -6,47 +6,33 @@ html {
 }
 
 body {
-	background-color: #7ED1ED;
-	font-family: 'Work Sans', sans-serif;
+	background-color: #FFFFFF;
+	font-family: Helvetica, arial, sans-serif;
 	font-weight: 300;
 	line-height: 1.5 !important;
 	height: 100%;
 }
 
-h1, h2, h3, h4, b, strong {
+h1, h2, h3, h4 {
 	font-weight: 500;
 	font-family: 'Work Sans', sans-serif;
+}
+
+strong, b {
+	font-weight: 800;
 }
 
 p {
 	font-weight: 300;
 }
 
-
-/*body#tour-de-france-2015 {
-	background-color: #F5F52F;
-}
-
-body#tour-de-france-2015 #page {
-	border-left-color: #F5F52F;
-	border-right-color: #F5F52F;
-}*/
-
-/*body#world-championships #page {
-	border-style: solid;
-	-moz-border-image: url('data:image/gif;base64,R0lGODlhMgABAKIAAP//BAB/Af8CAQN//wAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMwMTQgNzkuMTU2Nzk3LCAyMDE0LzA4LzIwLTA5OjUzOjAyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRkY3MjhGOTVBMTExMUU1OTIxNDgyRTI2OENCNjUyNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRkY3MjhGQTVBMTExMUU1OTIxNDgyRTI2OENCNjUyNCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZGRjcyOEY3NUExMTExRTU5MjE0ODJFMjY4Q0I2NTI0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZGRjcyOEY4NUExMTExRTU5MjE0ODJFMjY4Q0I2NTI0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAADIAAQAAAw04uiz+kMhJgb046M0TADs=') 0 50 0 50 round repeat;
-	-webkit-border-image: url('data:image/gif;base64,R0lGODlhMgABAKIAAP//BAB/Af8CAQN//wAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMwMTQgNzkuMTU2Nzk3LCAyMDE0LzA4LzIwLTA5OjUzOjAyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRkY3MjhGOTVBMTExMUU1OTIxNDgyRTI2OENCNjUyNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRkY3MjhGQTVBMTExMUU1OTIxNDgyRTI2OENCNjUyNCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZGRjcyOEY3NUExMTExRTU5MjE0ODJFMjY4Q0I2NTI0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZGRjcyOEY4NUExMTExRTU5MjE0ODJFMjY4Q0I2NTI0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAADIAAQAAAw04uiz+kMhJgb046M0TADs=') 0 50 0 50 round repeat;
-	-o-border-image: url('data:image/gif;base64,R0lGODlhMgABAKIAAP//BAB/Af8CAQN//wAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMwMTQgNzkuMTU2Nzk3LCAyMDE0LzA4LzIwLTA5OjUzOjAyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRkY3MjhGOTVBMTExMUU1OTIxNDgyRTI2OENCNjUyNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRkY3MjhGQTVBMTExMUU1OTIxNDgyRTI2OENCNjUyNCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZGRjcyOEY3NUExMTExRTU5MjE0ODJFMjY4Q0I2NTI0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZGRjcyOEY4NUExMTExRTU5MjE0ODJFMjY4Q0I2NTI0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAADIAAQAAAw04uiz+kMhJgb046M0TADs=') 0 50 0 50 round repeat;
-	border-image: url('data:image/gif;base64,R0lGODlhMgABAKIAAP//BAB/Af8CAQN//wAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMwMTQgNzkuMTU2Nzk3LCAyMDE0LzA4LzIwLTA5OjUzOjAyICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRkY3MjhGOTVBMTExMUU1OTIxNDgyRTI2OENCNjUyNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRkY3MjhGQTVBMTExMUU1OTIxNDgyRTI2OENCNjUyNCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZGRjcyOEY3NUExMTExRTU5MjE0ODJFMjY4Q0I2NTI0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZGRjcyOEY4NUExMTExRTU5MjE0ODJFMjY4Q0I2NTI0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAADIAAQAAAw04uiz+kMhJgb046M0TADs=') 0 50 0 50 round repeat;
-}*/
-
 #page {
 	max-width: 1200px;
 	background-color: #FFFFFF;
-	border-left-color: #7ED1ED;
-	border-right-color: #7ED1ED;
+	border-left-color: #002478;
+	border-right-color: #002478;
 	border-left-style: solid;
-	border-left-width: 10px;
+	/*border-left-width: 10px;*/
 	position: relative;
 	margin-left: auto;
 	min-height: 100%;
@@ -60,12 +46,13 @@ body#tour-de-france-2015 #page {
 	background: #FFFFFF;
 	padding-bottom: 5px;
 	float: left;
-	margin-bottom: 2em;
+	margin-bottom: 0;
 }
 
 #sidebar .site-header {
 	border-bottom: none;
-	background-color: rgba(247, 247, 247, 0.73);
+	background-color: #072042; /* dark blue */
+	color: #FFFFFF;
 }
 
 #sidebar aside.widget {
@@ -82,7 +69,7 @@ body#tour-de-france-2015 #page {
 }
 
 #sidebar #secondary {
-	border-top: 5px solid rgba(255, 255, 0, 0.26);
+	border-top: 5px solid #FE7200; /* orange */
 }
 
 #sidebar #secondary h2 {
@@ -100,7 +87,12 @@ body#tour-de-france-2015 #page {
     margin-top: -8px;
     margin-bottom: 0;
     margin-left: 0;
+    padding-bottom: 13px;
     line-height: 1.1em;
+}
+
+.site-title a img {
+	width: 92%;
 }
 
 @media screen and (min-width: 480px) {
@@ -110,10 +102,17 @@ body#tour-de-france-2015 #page {
 	}
 }
 
+@media screen and (min-width: 580px) {
+	.site-title {
+		padding-bottom: 7px;
+	}
+}
+
 .site-description {
 	position: relative;
 	top: -9px;
-	display: block;
+	display: none;
+	opacity: 1;
 }
 
 #content {
@@ -134,7 +133,6 @@ body#tour-de-france-2015 #page {
     margin: 0;
     font-size: 1.3em;
     line-height: 1.5;
-    letter-spacing: -0.05em;
     font-weight: 400;
     margin-bottom: 100px;
 }
@@ -185,24 +183,18 @@ body#tour-de-france-2015 #page {
 }
 
 #content .comment-list article .comment-content {
-	font-family: helvetica, sans-serif;
+	font-family: helvetica, arial, sans-serif;
 	font-size: 0.8em;
 	letter-spacing: normal;
 }
 
 @media screen and (min-width: 768px) {
 	#page {
-		border-left-width: 10px;
-	}
-}
-
-@media screen and (min-width: 1200px) {
-	#page {
-		border-right-width: 10px;
+		border-left-width: 0;
+		border-right-width: 0;
 		border-right-style: solid;
 	}
 }
-
 
 @media screen and (max-width: 650px) {
 
@@ -239,15 +231,14 @@ body#tour-de-france-2015 #page {
 
 @media screen and (min-width: 1056px) {
 	#bg-container {
-		position: fixed;
+		position: absolute;
 		top: 0;
 		left: 0;
 		bottom: 0;
 		right: 0;
 		width: 100%;
 		height: 100%;
-		background: url('images/TeamGB3.png') no-repeat top left;
-		background-size: cover;
+		background: #FFFFFF url('images/background-rpt.png') repeat-x top left;
 		opacity: 1;
 	}
 }
@@ -292,13 +283,11 @@ body#tour-de-france-2015 #page {
 }
 
 .homepage-cat-teaser h2 {
-	letter-spacing: -0.05em;
 	margin-bottom: 1.2em;
 }
 
 .homepage-cat-teaser p {
 	font-size: 1.1em;
-	letter-spacing: -0.05em;
 }
 
 @media screen and width (min-width: 321px) {
@@ -364,7 +353,7 @@ footer a {
 
 .entry-footer {
 	color: #333333;
-	font-family: Helvetica, sans-serif;
+	font-family: Helvetica, arial, sans-serif;
 	font-size: 12px;
 	font-size: 1.2rem;
 	line-height: 1.5;
@@ -390,7 +379,7 @@ footer a {
 	position: static;
 	padding-right: 0;
 	text-align: center;
-	padding-top: 3em;
+	padding-top: 2em;
 }
 
 #sidebar #secondary {
@@ -436,8 +425,9 @@ footer a {
 @media screen and (min-width: 570px) {
 
 	#sidebar #secondary {
-		background-color: rgba(255, 255, 0, 0.26);
+		background-color: #072042;
 		border-top: none;
+		border-bottom: 5px solid #FE7200;
 	}
 
 	#sidebar #secondary aside {
@@ -460,7 +450,6 @@ footer a {
 		display: block;
 		position: relative;
 		left: auto;
-		background-color: rgba(255, 255, 0, 0.48);
 		z-index: 2;
 		max-width: 505px;
 	}
@@ -473,6 +462,10 @@ footer a {
 		float: none;
 		display: inline-block;
 		border-bottom: none;
+	}
+
+	#sidebar #secondary li a {
+		color: #FFFFFF;
 	}
 
 	#sidebar #secondary li:nth-child(2n+1) {
@@ -519,9 +512,7 @@ footer a {
     right: 0;
     width: 100%;
     text-align: center;
-    border-bottom: 5px solid rgba(255, 255, 0, 0.26);
     padding-bottom: 0.2em;
-    background-color: #FFFFFF;
     padding-left: 2%;
     padding-right: 2%;
 }
@@ -533,6 +524,7 @@ footer a {
 
 .header-social a {
 	display: inline;
+	color: #FFFFFF;
 }
 
 .header-social a .text {
@@ -776,7 +768,7 @@ footer a {
 }
 
 .subnav .nav-wrapper {
-	border-bottom: 5px solid rgba(255, 255, 0, 0.26);
+	border-bottom: 5px solid #FE7200;
 	display: none;
 }
 
